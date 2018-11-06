@@ -1,0 +1,37 @@
+.item-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    width: 160px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 3px 5px 1px #626b68;
+    background-color: rgb(55.3%, 85.1%, 83.1%);
+}
+
+.item-wrapper:hover {
+    background-color: rgb(96, 206, 197);
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.item-price {
+    font-size: 26px;
+}
+
+.item-quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    background-color: white;
+}
