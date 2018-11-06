@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Store } from './components/Store';
+import { Shop } from './components/Shop';
 
-ReactDOM.render(<Store />, document.getElementById('root'));
+ReactDOM.render(<Shop />, document.getElementById('root'));

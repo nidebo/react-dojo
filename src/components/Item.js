@@ -4,7 +4,11 @@ import '../styles/Item.css';
 
 export class Item extends Component {
     onClickItem = () => {
-        this.props.onClickItem(this.props.value);
+        const { value, onClickItem } = this.props;
+        const quantity = value.quantity || 0;
+        if (quantity < value.left) {
+            onClickItem(value);
+        }
     }
 
     render() {
@@ -16,8 +20,10 @@ export class Item extends Component {
             >
                 <div className="item-name">{value.name}</div>
                 <div className="item-price">{value.price}€</div>
-                <div className="item-quantity">{value.quantity}</div>
-                <ItemError />
+                <div className="item-quantity">{value.quantity || 0}</div>
+                { value.quantity >= value.left && (
+                    <ItemError max={value.left} />
+                )}
             </div>
         );
     }

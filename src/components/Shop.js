@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import '../styles/Store.css';
-import { StoreList } from './StoreList';
+import '../styles/Shop.css';
+import { ItemList } from './ItemList';
 import { CheckoutSummary } from './CheckoutSummary';
-import stockItems from '../stock/stock';
+import { stock } from '../stock/stock';
+import _ from 'lodash';
 
-export class Store extends Component {
+export class Shop extends Component {
     state = {
-        pickedItems: stockItems,
+        pickedItems: stock,
     }
 
     onClickItem = (item) => {
         const currentItemQuantity = this.state.pickedItems[item.id-1].quantity || 0;
-        const picked = Object.assign([], this.state.pickedItems);
+        const picked = _.cloneDeep(this.state.pickedItems);
         picked[item.id-1].quantity = currentItemQuantity + 1;
         this.setState({ pickedItems: picked });
     }
@@ -19,13 +20,13 @@ export class Store extends Component {
     render() {
         const { pickedItems } = this.state;
         return (
-            <div className="store-wrapper">
-                <div className="store-name">Bienvenido a mi tienda online!</div>
-                <StoreList
+            <div className="shop-wrapper">
+                <div className="shop-name">Bienvenido a mi tienda online!</div>
+                <ItemList
                     items={pickedItems}
                     onClickItem={this.onClickItem}
                 />
-                <CheckoutSummary items={pickedItems} discounts={null} />
+                <CheckoutSummary items={pickedItems} />
             </div>
         );
     }

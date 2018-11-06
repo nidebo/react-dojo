@@ -22,3 +22,14 @@
 .summary-discount {
     color: green;
 }
+
+.summary-total {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60px;
+}
+
+.summary-number {
+    font-weight: bold;
+}

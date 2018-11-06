@@ -1,4 +1,4 @@
-export default [
+export const stock = Object.freeze([
     {
         id: 1,
         name: 'Zapatos',
@@ -17,4 +17,4 @@ export default [
         price: 30,
         left: 2,
     }
-];
+]);
