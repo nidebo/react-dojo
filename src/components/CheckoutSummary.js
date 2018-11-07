@@ -2,22 +2,6 @@ import React, { Component } from 'react';
 import '../styles/CheckoutSummary.css';
 
 export class CheckoutSummary extends Component {
-    getGrandTotal = () => {
-        const { items } = this.props;
-        return items.reduce((acc, item) => {
-            const qty = item.quantity || 0;
-            return acc + qty * item.price;
-        }, 0);
-    }
-
-    getProductsTotal = () => {
-        const { items } = this.props;
-        return items.reduce((acc, item) => {
-            const qty = item.quantity || 0;
-            return acc + qty;
-        }, 0);
-    }
-
     render() {
         return (
             <div className="summary-wrapper">
@@ -28,10 +12,10 @@ export class CheckoutSummary extends Component {
                     <hr />
                     <div className="summary-total">
                         <div className="summary-products">
-                            Total Productos <span className="summary-number">{this.getProductsTotal()}</span>
+                            Total Productos <span className="summary-number"></span>
                         </div>
                         <div className="summary-price">
-                            Total <span className="summary-number">{this.getGrandTotal()}€</span>
+                            Total <span className="summary-number"></span>
                         </div>
                     </div>
                 </div>
