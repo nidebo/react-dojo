@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/ItemList.css';
+import { Item } from './Item';
 
-export class ItemList extends Component {
-    render() {
-        return (
-            <div className="list-wrapper">
-            </div>
-        );
-    }
-}
+export const ItemList = ({ items, onClickItem }) => (
+    <div className="list-wrapper">
+    { items.map(item => (
+        <Item key={item.id} item={item} onClick={() => onClickItem(item.id)} />
+    ))}
+    </div>
+);

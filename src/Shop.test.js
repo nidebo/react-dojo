@@ -6,7 +6,6 @@ import { Shop } from './components/Shop';
 import { ItemList } from './components/ItemList';
 import { Item } from './components/Item';
 import { CheckoutSummary } from './components/CheckoutSummary';
-import { ItemError } from './components/ItemError';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -26,51 +25,51 @@ describe('App', () => {
             expect(wrapper.find(ItemList)).to.have.lengthOf(1);
         });
     
-        xtest('should display a CheckoutSummary', () => {
+        test('should display a CheckoutSummary', () => {
             expect(wrapper.find(CheckoutSummary)).to.have.lengthOf(1);
         });
     });
 
     describe('ItemList', () => {
-        xtest('should display a <Item /> per item type in the stock', () => {
+        test('should display a <Item /> per item type in the stock', () => {
             const itemList = wrapper.find(ItemList);
             expect(itemList.find(Item)).to.have.lengthOf(3);
         });
     });
 
     describe('Item', () => {
-        xtest('should display the item name correctly', () => {
+        test('should display the item name correctly', () => {
             const itemList = wrapper.find(ItemList);
             const firstItem = itemList.find(Item).at(0);
             expect(firstItem.find('.item-name').text()).to.be.equal('Zapatos');
         });
 
-        xtest('should display another item name correctly', () => {
+        test('should display another item name correctly', () => {
             const itemList = wrapper.find(ItemList);
             const secondItem = itemList.find(Item).at(1);
             expect(secondItem.find('.item-name').text()).to.be.equal('Camisa');
         });
 
-        xtest('should display the item price correctly', () => {
+        test('should display the item price correctly', () => {
             const itemList = wrapper.find(ItemList);
             const firstItem = itemList.find(Item).at(0);
             expect(firstItem.find('.item-price').text()).to.be.equal('50€');
         });
 
-        xtest('should display the initial item quantity correctly', () => {
+        test('should display the initial item quantity correctly', () => {
             const itemList = wrapper.find(ItemList);
             const firstItem = itemList.find(Item).at(0);
             expect(firstItem.find('.item-quantity').text()).to.be.equal('0');
         });
 
-        xtest('should update the item quantity display when the item is clicked', () => {
+        test('should update the item quantity display when the item is clicked', () => {
             const itemList = wrapper.find(ItemList);
             const firstItem = itemList.find(Item).at(0);
             firstItem.simulate('click');
             expect(firstItem.find('.item-quantity').text()).to.be.equal('1');
         });
 
-        xtest('item quantity can not be bigger than stock left', () => {
+        test('item quantity can not be bigger than stock left', () => {
             const itemList = wrapper.find(ItemList);
             const thirdItem = itemList.find(Item).at(2);
             Array.from(Array(20).keys()).forEach(() => {
@@ -81,17 +80,17 @@ describe('App', () => {
     });
 
     describe('CheckoutSummary', () => {
-        xtest('should display the initial total price correctly', () => {
+        test('should display the initial total price correctly', () => {
             const checkoutSummary = wrapper.find(CheckoutSummary);
             expect(checkoutSummary.find('.summary-price').text()).to.be.equal('Total 0€');
         });
 
-        xtest('should display the initial total products correctly', () => {
+        test('should display the initial total products correctly', () => {
             const checkoutSummary = wrapper.find(CheckoutSummary);
             expect(checkoutSummary.find('.summary-products').text()).to.be.equal('Total Productos 0');
         });
 
-        xtest('should update the product total when an item is clicked', () => {
+        test('should update the product total when an item is clicked', () => {
             const checkoutSummary = wrapper.find(CheckoutSummary);
             const itemList = wrapper.find(ItemList);
             const firstItem = itemList.find(Item).at(0);
@@ -99,7 +98,7 @@ describe('App', () => {
             expect(checkoutSummary.find('.summary-products').text()).to.be.equal('Total Productos 1');
         });
 
-        xtest('should update the price total when an item is clicked', () => {
+        test('should update the price total when an item is clicked', () => {
             const checkoutSummary = wrapper.find(CheckoutSummary);
             const itemList = wrapper.find(ItemList);
             const firstItem = itemList.find(Item).at(0);
@@ -108,7 +107,7 @@ describe('App', () => {
             expect(checkoutSummary.find('.summary-price').text()).to.be.equal('Total 100€');
         });
 
-        xtest('should update the price total when many items are clicked', () => {
+        test('should update the price total when many items are clicked', () => {
             const checkoutSummary = wrapper.find(CheckoutSummary);
             const itemList = wrapper.find(ItemList);
             const firstItem = itemList.find(Item).at(0);
@@ -120,7 +119,7 @@ describe('App', () => {
     });
 
     describe('ItemError', () => {
-        xtest('should display the error correctly', () => {
+        test('should display the error correctly', () => {
             const itemList = wrapper.find(ItemList);
             const thirdItem = itemList.find(Item).at(2);
             thirdItem.simulate('click');
