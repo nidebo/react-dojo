@@ -7,13 +7,14 @@
     width: 160px;
     height: 200px;
     margin: 10px;
-    border-radius: 5px;
-    box-shadow: 1px 3px 5px 1px #626b68;
-    background-color: rgb(55.3%, 85.1%, 83.1%);
+    border-radius: 4px;
+    box-shadow: 1px 1px 8px 1px #d6d6d6;
+    background-color: white;
+    cursor: pointer;
 }
 
 .item-wrapper:hover {
-    background-color: rgb(96, 206, 197);
+    background-color: #f6f7f6;
 }
 
 .item-name {
@@ -33,5 +34,5 @@
     width: 50px;
     height: 50px;
     font-size: 22px;
-    background-color: white;
+    background-color: #11BB77;
 }

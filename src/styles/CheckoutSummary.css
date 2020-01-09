@@ -3,16 +3,14 @@
     flex-direction: column;
     justify-content: center;
     padding: 10px;
-    align-items: center;
 }
 
 .summary-box {
-    width: 300px;
+    width: 100%;
     height: 100px;
     padding: 10px;
     border-radius: 5px;
     background-color: white;
-    box-shadow: 1px 3px 5px 1px #626b68;
 }
 
 .summary-original-price {
