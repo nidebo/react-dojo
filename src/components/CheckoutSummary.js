@@ -1,11 +1,7 @@
 import React from 'react';
 import '../styles/CheckoutSummary.css';
 
-export const CheckoutSummary = ({ items }) => {
-    const getTotalProducts = () => items.reduce((acc, item) => acc + item.quantity, 0);
-
-    const getGrandTotal = () => items.reduce((acc, item) => acc + item.quantity * item.price, 0);
-
+export const CheckoutSummary = () => {
     return (
         <div className="summary-wrapper">
             <div className="summary-box">
@@ -15,10 +11,10 @@ export const CheckoutSummary = ({ items }) => {
                 <hr />
                 <div className="summary-total">
                     <div className="summary-products">
-                        Total Productos <span className="summary-number">{getTotalProducts()}</span>
+                        Total Productos <span className="summary-number"></span>
                     </div>
                     <div className="summary-price">
-                        Total <span className="summary-number">{getGrandTotal()}€</span>
+                        Total <span className="summary-number"></span>
                     </div>
                 </div>
             </div>

@@ -2,10 +2,10 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { expect } from 'chai';
-import { Shop } from './components/Shop';
-import { ItemList } from './components/ItemList';
-import { Item } from './components/Item';
-import { CheckoutSummary } from './components/CheckoutSummary';
+import { Shop } from '../components/Shop';
+import { ItemList } from '../components/ItemList';
+import { Item } from '../components/Item';
+import { CheckoutSummary } from '../components/CheckoutSummary';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -13,7 +13,7 @@ Enzyme.configure({ adapter: new Adapter() });
 // Let's try to pass the tests in order.
 // As a tip: We can do as minimum as necessary to make the test pass :)
 
-describe('App', () => {
+describe('Shop', () => {
     let wrapper;
 
     const stock = [
@@ -45,7 +45,7 @@ describe('App', () => {
         wrapper = mount(<Shop stock={stock} />);
     });
 
-    describe('Store', () => {
+    describe('Shop Page', () => {
         test('should display an ItemList', () => {
             expect(wrapper.find(ItemList)).to.have.lengthOf(1);
         });
@@ -56,7 +56,7 @@ describe('App', () => {
     });
 
     describe('ItemList', () => {
-        test('should display a <Item /> per item type in the stock', () => {
+        test('should display an item per item type in the stock', () => {
             const itemList = wrapper.find(ItemList);
             expect(itemList.find(Item)).to.have.lengthOf(3);
         });
