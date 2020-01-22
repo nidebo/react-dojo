@@ -1,13 +1,13 @@
 import React from 'react';
-import './styles/Shop.css';
 
-import { Shop } from './components/Shop';
-import { stock } from './stock/stock';
+import { Store } from './components/Store';
+import { catalog } from './data/catalog';
+import { promoCodes } from './data/promoCodes';
 
 // INFO: stock is our data
 
 export const App = () => {
     return (
-        <Shop />
+        <Store catalog={catalog} promoCodes={promoCodes} />
     );
 };

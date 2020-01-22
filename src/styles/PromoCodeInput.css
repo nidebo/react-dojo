@@ -1,0 +1,22 @@
+.promo-wrapper {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.promo-box {
+    border: 1px dashed #d6d6d6;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+
+.promo-description {
+    margin-right: 10px;
+}
+
+.promo-input {
+    height: 30px;
+    padding: 0 5px;
+    font-size: 14px;
+    outline: none;
+}

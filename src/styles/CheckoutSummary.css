@@ -7,10 +7,6 @@
 
 .summary-box {
     width: 100%;
-    height: 100px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: white;
 }
 
 .summary-original-price {
@@ -21,11 +17,11 @@
     color: green;
 }
 
-.summary-total {
+.summary-info {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 60px;
+    height: 100px;
 }
 
 .summary-number {

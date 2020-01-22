@@ -1,4 +1,4 @@
-export const stock = Object.freeze([
+export const catalog = Object.freeze([
     {
         id: 1,
         name: 'iPhone 7',
