@@ -126,51 +126,48 @@ describe('Store', () => {
         expect(wrapper.container).toHaveTextContent(`${left} máximo`);
     });
 
-    it('should not display an error when item selection count is less than max allowed', () => {
-        expect(wrapper.container).not.toHaveTextContent('máximo');
-    })
-
     /* BONUS TRACK */
-    it('should allow to input a discount code', () => {
-        const input = wrapper.getByPlaceholderText('Código Promocional');
-        const newValue = 'ABCD';
-        fireEvent.change(input, { target: { value: newValue }});
-        expect(input.value).toEqual(newValue);
-    });
 
-    it('should display the percentage discount when valid discount code is supplied', () => {
-        const { code, discountPercentage } = codes[0];
-        const input = wrapper.getByPlaceholderText('Código Promocional');
-        fireEvent.change(input, { target: { value: code }});
-        expect(wrapper.container).toHaveTextContent(`Descuento Promo (${discountPercentage}%)`);
-    });
+    // it('should allow to input a discount code', () => {
+    //     const input = wrapper.getByPlaceholderText('Código Promocional');
+    //     const newValue = 'ABCD';
+    //     fireEvent.change(input, { target: { value: newValue }});
+    //     expect(input.value).toEqual(newValue);
+    // });
 
-    it('should display the discounted amount when valid discount code is supplied', () => {
-        const { code, discountPercentage } = codes[0];
-        const input = wrapper.getByPlaceholderText('Código Promocional');
-        fireEvent.change(input, { target: { value: code }});
+    // it('should display the percentage discount when valid discount code is supplied', () => {
+    //     const { code, discountPercentage } = codes[0];
+    //     const input = wrapper.getByPlaceholderText('Código Promocional');
+    //     fireEvent.change(input, { target: { value: code }});
+    //     expect(wrapper.container).toHaveTextContent(`Descuento Promo (${discountPercentage}%)`);
+    // });
 
-        const apple = wrapper.getByText('Apple');
-        fireEvent.click(apple);
+    // it('should display the discounted amount when valid discount code is supplied', () => {
+    //     const { code, discountPercentage } = codes[0];
+    //     const input = wrapper.getByPlaceholderText('Código Promocional');
+    //     fireEvent.change(input, { target: { value: code }});
+
+    //     const apple = wrapper.getByText('Apple');
+    //     fireEvent.click(apple);
         
-        const { price: applePrice } = catalog[0];
-        const discount = discountPercentage * applePrice / 100;
-        expect(wrapper.container).toHaveTextContent(`-${discount}€`);
-    });
+    //     const { price: applePrice } = catalog[0];
+    //     const discount = discountPercentage * applePrice / 100;
+    //     expect(wrapper.container).toHaveTextContent(`-${discount}€`);
+    // });
 
-    it('should display the discounted total when valid discount code is supplied', () => {
-        const { code, discountPercentage } = codes[0];
-        const input = wrapper.getByPlaceholderText('Código Promocional');
-        fireEvent.change(input, { target: { value: code }});
+    // it('should display the discounted total when valid discount code is supplied', () => {
+    //     const { code, discountPercentage } = codes[0];
+    //     const input = wrapper.getByPlaceholderText('Código Promocional');
+    //     fireEvent.change(input, { target: { value: code }});
 
-        const apple = wrapper.getByText('Apple');
-        fireEvent.click(apple);
-        fireEvent.click(apple);
+    //     const apple = wrapper.getByText('Apple');
+    //     fireEvent.click(apple);
+    //     fireEvent.click(apple);
         
-        const { price: applePrice } = catalog[0];
-        const total = applePrice * 2;
-        const discount = discountPercentage * applePrice * 2 / 100;
-        const discountedTotal = total - discount;
-        expect(wrapper.container).toHaveTextContent(`Total con Descuento Promo ${discountedTotal}€`);
-    });
+    //     const { price: applePrice } = catalog[0];
+    //     const total = applePrice * 2;
+    //     const discount = discountPercentage * applePrice * 2 / 100;
+    //     const discountedTotal = total - discount;
+    //     expect(wrapper.container).toHaveTextContent(`Total con Descuento Promo ${discountedTotal}€`);
+    // });
 });
